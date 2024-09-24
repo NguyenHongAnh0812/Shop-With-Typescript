@@ -62,6 +62,13 @@
       "name": "user2",
       "rule": "user",
       "id": "QL1k_-c"
+    },
+    {
+      "email": "user3@gmail.com",
+      "password": "$2a$10$HMSDsygLDp2aN8MFX6QsLOHyx4IUCrSccm40RzkYoQnI7FaAW/Cyq",
+      "name": "user3",
+      "rule": "user",
+      "id": "hgp7v4u"
     }
   ],
   "products": [
@@ -228,33 +235,13 @@
   ],
   "carts": [
     {
-      "userId": "VUPIYV_",
-      "name": "Focus Paper Refill",
-      "description": "A beautifully crafted bottle with natural clay texture and cork stopper.",
-      "price": 89,
-      "imageSrc": "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
-      "imageAlt": "Person using a pen to cross a task off a productivity paper card.",
-      "quantity": 4,
-      "id": 4
-    },
-    {
-      "userId": "VUPIYV_",
-      "name": "Earthen Bottle 1",
-      "description": "A beautifully crafted bottle with natural clay texture and cork stopper.",
-      "price": 48,
-      "imageSrc": "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
-      "imageAlt": "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
-      "quantity": 2,
-      "id": 5
-    },
-    {
       "userId": "giSajqm",
       "name": "Mens Casual Slim Fit",
       "description": "The color could be slightly different between on the screen and in practice.",
       "price": 15.99,
       "imageSrc": "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
       "imageAlt": "Mens Casual Slim Fit",
-      "quantity": 1,
+      "quantity": 3,
       "id": 6
     },
     {
@@ -264,7 +251,7 @@
       "price": 22.3,
       "imageSrc": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
       "imageAlt": "Mens Casual Premium Slim Fit T-Shirts",
-      "quantity": 1,
+      "quantity": 2,
       "id": 7
     },
     {
@@ -274,7 +261,7 @@
       "price": 9.85,
       "imageSrc": "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
       "imageAlt": "MBJ Women's Solid Short Sleeve",
-      "quantity": 1,
+      "quantity": 2,
       "id": 8
     },
     {
@@ -284,7 +271,7 @@
       "price": 7.95,
       "imageSrc": "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
       "imageAlt": "Opna Women's Short Sleeve",
-      "quantity": 1,
+      "quantity": 2,
       "id": 9
     },
     {
@@ -294,8 +281,98 @@
       "price": 9.99,
       "imageSrc": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
       "imageAlt": "White Gold Plated Princess Ring",
-      "quantity": 1,
+      "quantity": 2,
       "id": 10
+    },
+    {
+      "userId": "giSajqm",
+      "name": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+      "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings made of 316L Stainless Steel.",
+      "price": 10.99,
+      "imageSrc": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
+      "imageAlt": "Pierced Owl Rose Gold Plated Earrings",
+      "quantity": 6,
+      "id": 11
+    },
+    {
+      "userId": "VUPIYV_",
+      "name": "DANVOUY Womens T Shirt Casual Cotton Short",
+      "description": "Soft fabric with some stretch, perfect for casual wear.",
+      "price": 12.99,
+      "imageSrc": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
+      "imageAlt": "DANVOUY Womens Casual T-Shirt",
+      "quantity": 1,
+      "id": 12
+    },
+    {
+      "userId": "VUPIYV_",
+      "name": "Mens Casual Slim Fit",
+      "description": "The color could be slightly different between on the screen and in practice.",
+      "price": 15.99,
+      "imageSrc": "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
+      "imageAlt": "Mens Casual Slim Fit",
+      "quantity": 1,
+      "id": 13
+    },
+    {
+      "userId": "VUPIYV_",
+      "name": "Mens Casual Premium Slim Fit T-Shirts",
+      "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing.",
+      "price": 22.3,
+      "imageSrc": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+      "imageAlt": "Mens Casual Premium Slim Fit T-Shirts",
+      "quantity": 1,
+      "id": 14
+    },
+    {
+      "userId": "VUPIYV_",
+      "name": "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
+      "description": "Faux leather material for style and comfort with removable hood.",
+      "price": 29.95,
+      "imageSrc": "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg",
+      "imageAlt": "Lock and Love Women's Biker Jacket",
+      "quantity": 1,
+      "id": 15
+    },
+    {
+      "userId": "hgp7v4u",
+      "name": "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
+      "description": "21.5 inches Full HD widescreen IPS display with Radeon free Sync technology.",
+      "price": 599,
+      "imageSrc": "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg",
+      "imageAlt": "Acer SB220Q 21.5 inches Monitor",
+      "quantity": 10,
+      "id": 16
+    },
+    {
+      "userId": "hgp7v4u",
+      "name": "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor",
+      "description": "49 INCH SUPER ULTRAWIDE CURVED GAMING MONITOR with stunningly realistic color.",
+      "price": 999.99,
+      "imageSrc": "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg",
+      "imageAlt": "Samsung 49-Inch CHG90 Monitor",
+      "quantity": 4,
+      "id": 17
+    },
+    {
+      "userId": "hgp7v4u",
+      "name": "Silicon Power 256GB SSD 3D NAND A55",
+      "description": "3D NAND flash applied to deliver high transfer speeds.",
+      "price": 109,
+      "imageSrc": "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg",
+      "imageAlt": "Silicon Power 256GB SSD",
+      "quantity": 3,
+      "id": 18
+    },
+    {
+      "userId": "hgp7v4u",
+      "name": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
+      "description": "Easy upgrade for faster boot up, shutdown, application load and response.",
+      "price": 109,
+      "imageSrc": "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg",
+      "imageAlt": "SanDisk SSD PLUS 1TB",
+      "quantity": 6,
+      "id": 19
     }
   ]
 }

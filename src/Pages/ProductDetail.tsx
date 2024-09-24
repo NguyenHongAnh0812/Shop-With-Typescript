@@ -2,19 +2,29 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import { NavigationItem } from "../Components/Navbar";
 import Footer from "../Components/Footer";
-import { product } from "../Models/model";
+import { cart, product } from "../Models/model";
 import { useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+interface User {
+  rule: string; // "user" hoặc "admin"
+  email: string;
+  name: string;
+  id: string;
+}
 
-
+interface UserData {
+  accessToken: string;
+  user: User;
+}
 export const ProductDetail = () => {
-  const {id} = useParams();
-  const [product,setProduct] = useState<product>({
+  const { id } = useParams();
+  const [product, setProduct] = useState<product>({
     name: "",
     description: "",
     price: 0,
     imageSrc: "",
     imageAlt: "",
-  })
+  });
   const navigationData: NavigationItem[] = [
     { name: "Home", href: "/", current: false },
     { name: "Product", href: "/ProductList", current: false },
@@ -37,14 +47,86 @@ export const ProductDetail = () => {
     };
     fetchProducts();
   }, []);
-  const handleAddToCart = () => {
-    alert(`${product.name} added to cart!`);
-    // Logic thêm sản phẩm vào giỏ hàng có thể được thêm tại đây
+  const handleAddToCart = async (product: product) => {
+    const usersJson = localStorage.getItem("user");
+    const userData: UserData | null = usersJson ? JSON.parse(usersJson) : null;
+    const accessToken: string | undefined = userData?.accessToken;
+
+    if (!accessToken) {
+      window.location.href = "/Login";
+    }
+
+    try {
+      const cartResponse = await fetch(
+        `http://localhost:3001/carts?userId=${userData?.user.id}`
+      );
+      const cartItems: cart[] = await cartResponse.json();
+
+      const existingProduct = cartItems.find(
+        (item) => item.name === product.name
+      );
+
+      if (existingProduct) {
+        const updatedQuantity = existingProduct.quantity + 1;
+
+        const updateResponse = await fetch(
+          `http://localhost:3001/carts/${existingProduct.id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ quantity: updatedQuantity }),
+          }
+        );
+
+        if (updateResponse.ok) {
+          toast.success(`${product.name} quantity updated in cart!`, {
+            position: "top-right",
+            autoClose: 1500,
+          });
+        } else {
+          throw new Error("Failed to update product quantity in cart");
+        }
+      } else {
+        const addResponse = await fetch("http://localhost:3001/carts", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: userData?.user?.id,
+            name: product.name,
+            description: product.description,
+            price: product.price,
+            imageSrc: product.imageSrc,
+            imageAlt: product.imageAlt,
+            quantity: 1,
+          }),
+        });
+
+        if (addResponse.ok) {
+          toast.success(`${product.name} added to cart!`, {
+            position: "top-right",
+            autoClose: 1500,
+          });
+        } else {
+          throw new Error("Failed to add to cart");
+        }
+      }
+    } catch (err) {
+      toast.error("Failed to add product to cart", {
+        position: "top-right",
+        autoClose: 1500,
+      });
+      console.error(err);
+    }
   };
 
   return (
     <>
       <Navbar navigationData={navigationData} />
+      <ToastContainer/>
       <div className="bg-white">
         <div className="mx-auto max-w-2xl py-16 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 mt-20 mb-10">
@@ -69,7 +151,7 @@ export const ProductDetail = () => {
 
               <div className="mt-10">
                 <button
-                  onClick={handleAddToCart}
+                  onClick={()=>handleAddToCart(product)}
                   className="w-full bg-blue-600 text-white py-3 px-8 rounded-lg hover:bg-blue-700"
                 >
                   Add to Cart
@@ -79,7 +161,7 @@ export const ProductDetail = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
-}
+};

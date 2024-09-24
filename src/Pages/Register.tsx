@@ -32,7 +32,7 @@ const Register: React.FC = () => {
       if (!response.ok) {
         throw new Error("Failed to register");
       }
-
+      console.log(response)
       setSuccess("Registration successful!");
       setError("");
       // Optionally clear the form
