@@ -20,7 +20,13 @@ interface UserData {
 
 export const Cart: React.FC = () => {
   const [cartItems, setCartItems] = useState<cart[]>([]);
+  const [discount, setDiscount] = useState<number>(0);
   const [item, setItem] = useState<cart>();
+  const [codeDiscount, setCodeDiscount] = useState<string>("");
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCodeDiscount(e.target.value);
+  };
   const navigationData: NavigationItem[] = [
     { name: "Home", href: "/", current: false },
     { name: "Product", href: "/ProductList", current: false },
@@ -162,6 +168,11 @@ export const Cart: React.FC = () => {
   if (!accessToken) {
     return <Navigate to="/Login" />;
   }
+  const handleDiscount = () => {
+    if(codeDiscount.toUpperCase() == "BIGSALE") setDiscount(20)
+    if(codeDiscount.toUpperCase() == "SALE") setDiscount(10)
+    setCodeDiscount("")
+  };
   return (
     <>
       <Navbar navigationData={navigationData} />
@@ -247,14 +258,17 @@ export const Cart: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-gray-100 rounded-md p-4 md:sticky top-0">
+          <div className="bg-gray-100 rounded-md p-4 top-0">
             <div className="flex border border-blue-600 overflow-hidden rounded-md">
               <input
                 type="text"
                 placeholder="Promo code"
+                value={codeDiscount}
+                onChange={handleInputChange}
                 className="w-full outline-none bg-white text-gray-600 text-sm px-4 py-2.5"
               />
               <button
+                onClick={() => handleDiscount()}
                 type="button"
                 className="flex items-center justify-center font-semibold tracking-wide bg-blue-600 hover:bg-blue-700 px-4 text-sm text-white"
               >
@@ -264,7 +278,7 @@ export const Cart: React.FC = () => {
 
             <ul className="text-gray-800 mt-8 space-y-4">
               <li className="flex flex-wrap gap-4 text-base">
-                Discount <span className="ml-auto font-bold">$0.00</span>
+                Discount <span className="ml-auto font-bold">{discount}% = ${total*discount/100}</span>
               </li>
               <li className="flex flex-wrap gap-4 text-base">
                 Shipping <span className="ml-auto font-bold">$2.00</span>
@@ -273,7 +287,7 @@ export const Cart: React.FC = () => {
                 Tax <span className="ml-auto font-bold">$4.00</span>
               </li>
               <li className="flex flex-wrap gap-4 text-base font-bold">
-                Total <span className="ml-auto">${(total + 6).toFixed(2)}</span>
+                Total <span className="ml-auto">${(total + 6 - total*discount/100).toFixed(2)}</span>
               </li>
             </ul>
 

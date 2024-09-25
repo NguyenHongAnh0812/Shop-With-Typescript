@@ -8,7 +8,7 @@ import { cart, product } from "../Models/model";
 import { useNavigate } from "react-router-dom";
 
 interface User {
-  rule: string; // "user" hoặc "admin"
+  rule: string;
   email: string;
   name: string;
   id: string;
@@ -66,7 +66,7 @@ export default function ProductList() {
     );
 
     setFilteredProducts(sorted);
-    setCurrentPage(1); // Reset về trang đầu khi có thay đổi
+    setCurrentPage(1); 
   }, [searchQuery, sortOrder, products]);
 
   const handleAddToCart = async (product: product) => {

@@ -14,7 +14,7 @@ export const Home = () => {
         <>
         <Navbar navigationData={navigationData} />
         <div className="flex justify-center" >
-            <img className="mt-30 w-full" src="https://webed.netlify.app/public/img/tailwind-banner.jpg" alt="" />
+            <img className="mt-30 w-full h-full" src="https://webed.netlify.app/public/img/tailwind-banner.jpg" alt="" />
         </div>
         
         <Footer/>
