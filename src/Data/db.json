@@ -76,6 +76,13 @@
       "name": "user5",
       "rule": "user",
       "id": "UoMnX-9"
+    },
+    {
+      "email": "admin1@gmail.com",
+      "password": "$2a$10$N/V6fNyMikJSpGuWyNmmHegQRPf.tdLqDkoPyUIWVY7JePkJbgThq",
+      "name": "admin1",
+      "rule": "admin",
+      "id": "qPZn8JP"
     }
   ],
   "products": [
@@ -339,6 +346,16 @@
       "imageAlt": "White Gold Plated Princess Ring",
       "quantity": 1,
       "id": 26
+    },
+    {
+      "userId": "giSajqm",
+      "name": "Silicon Power 256GB SSD 3D NAND A55",
+      "description": "3D NAND flash applied to deliver high transfer speeds.",
+      "price": 109,
+      "imageSrc": "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg",
+      "imageAlt": "Silicon Power 256GB SSD",
+      "quantity": 17,
+      "id": 27
     }
   ]
 }

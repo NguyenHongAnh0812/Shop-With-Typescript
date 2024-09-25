@@ -7,7 +7,7 @@ const RegisterAdmin: React.FC = () => {
     name: "",
     email: "",
     password: "",
-    rule: "user"
+    rule: "admin"
   });
   const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<string>("");
@@ -37,7 +37,7 @@ const RegisterAdmin: React.FC = () => {
       setError("");
       // Optionally clear the form
       setUser({ name: "", email: "", password: "", rule: "" });
-      window.location.href='/Login'
+      window.location.href='/Admin/Login'
     } catch (error) {
       setError(error instanceof Error ? error.message : "An error occurred");
       setSuccess("");
