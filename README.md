@@ -65,7 +65,8 @@ npm install json-server@0.17
 - **Quản lý sản phẩm với các chức năng thêm, sửa, xoá**.
 
 ### 3. User
-- **Có thể xem các mặt hàng của shop**. 
+- **Có thể xem các mặt hàng của shop**.
+- **Tìm kiếm sản phẩm theo tên**.
 - **Xem các thông tin chi tiết của sản phẩm**.
 - **Thêm sản phẩm vào giỏ hàng ( có thể thêm mã giảm giá để giảm số tiền mua )**.
 - **CheckOut sản phẩm**
