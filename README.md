@@ -73,3 +73,7 @@ npm install json-server@0.17
 
 ### Ngoài ra sản phẩm còn được responsive để phù hợp với mọi thiết bị, thiết kế giao diện UX để tối ưu hoá trai nghiệm của người dùng
 
+# Deploy 
+
+## Link : https://shop-with-typescript.netlify.app/
+
