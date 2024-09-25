@@ -301,7 +301,7 @@
       "price": 12.99,
       "imageSrc": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
       "imageAlt": "DANVOUY Womens Casual T-Shirt",
-      "quantity": 1,
+      "quantity": 4,
       "id": 12
     },
     {
@@ -432,6 +432,16 @@
       "imageAlt": "Pierced Owl Rose Gold Plated Earrings",
       "quantity": 1,
       "id": 26
+    },
+    {
+      "userId": "VUPIYV_",
+      "name": "Opna Women's Short Sleeve Moisture",
+      "description": "Lightweight, roomy, and highly breathable with moisture wicking fabric.",
+      "price": 7.95,
+      "imageSrc": "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
+      "imageAlt": "Opna Women's Short Sleeve",
+      "quantity": 1,
+      "id": 27
     }
   ]
 }

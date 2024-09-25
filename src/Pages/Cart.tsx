@@ -278,7 +278,7 @@ export const Cart: React.FC = () => {
 
             <ul className="text-gray-800 mt-8 space-y-4">
               <li className="flex flex-wrap gap-4 text-base">
-                Discount <span className="ml-auto font-bold">{discount}% = ${total*discount/100}</span>
+                Discount <span className="ml-auto font-bold">{discount}% = ${(total*discount/100).toFixed(2)}</span>
               </li>
               <li className="flex flex-wrap gap-4 text-base">
                 Shipping <span className="ml-auto font-bold">$2.00</span>
