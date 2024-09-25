@@ -66,7 +66,7 @@ export default function ProductList() {
     );
 
     setFilteredProducts(sorted);
-    setCurrentPage(1); 
+    setCurrentPage(1);
   }, [searchQuery, sortOrder, products]);
 
   const handleAddToCart = async (product: product) => {
@@ -76,72 +76,72 @@ export default function ProductList() {
 
     if (!accessToken) {
       window.location.href = "/Login";
-    }
+    } else {
+      try {
+        const cartResponse = await fetch(
+          `http://localhost:3001/carts?userId=${userData?.user.id}`
+        );
+        const cartItems: cart[] = await cartResponse.json();
 
-    try {
-      const cartResponse = await fetch(
-        `http://localhost:3001/carts?userId=${userData?.user.id}`
-      );
-      const cartItems: cart[] = await cartResponse.json();
+        const existingProduct = cartItems.find(
+          (item) => item.name === product.name
+        );
 
-      const existingProduct = cartItems.find(
-        (item) => item.name === product.name
-      );
+        if (existingProduct) {
+          const updatedQuantity = existingProduct.quantity + 1;
 
-      if (existingProduct) {
-        const updatedQuantity = existingProduct.quantity + 1;
+          const updateResponse = await fetch(
+            `http://localhost:3001/carts/${existingProduct.id}`,
+            {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ quantity: updatedQuantity }),
+            }
+          );
 
-        const updateResponse = await fetch(
-          `http://localhost:3001/carts/${existingProduct.id}`,
-          {
-            method: "PATCH",
+          if (updateResponse.ok) {
+            toast.success(`${product.name} quantity updated in cart!`, {
+              position: "top-right",
+              autoClose: 1500,
+            });
+          } else {
+            throw new Error("Failed to update product quantity in cart");
+          }
+        } else {
+          const addResponse = await fetch("http://localhost:3001/carts", {
+            method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ quantity: updatedQuantity }),
+            body: JSON.stringify({
+              userId: userData?.user?.id,
+              name: product.name,
+              description: product.description,
+              price: product.price,
+              imageSrc: product.imageSrc,
+              imageAlt: product.imageAlt,
+              quantity: 1,
+            }),
+          });
+
+          if (addResponse.ok) {
+            toast.success(`${product.name} added to cart!`, {
+              position: "top-right",
+              autoClose: 1500,
+            });
+          } else {
+            throw new Error("Failed to add to cart");
           }
-        );
-
-        if (updateResponse.ok) {
-          toast.success(`${product.name} quantity updated in cart!`, {
-            position: "top-right",
-            autoClose: 1500,
-          });
-        } else {
-          throw new Error("Failed to update product quantity in cart");
         }
-      } else {
-        const addResponse = await fetch("http://localhost:3001/carts", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            userId: userData?.user?.id,
-            name: product.name,
-            description: product.description,
-            price: product.price,
-            imageSrc: product.imageSrc,
-            imageAlt: product.imageAlt,
-            quantity: 1,
-          }),
+      } catch (err) {
+        toast.error("Failed to add product to cart", {
+          position: "top-right",
+          autoClose: 1500,
         });
-
-        if (addResponse.ok) {
-          toast.success(`${product.name} added to cart!`, {
-            position: "top-right",
-            autoClose: 1500,
-          });
-        } else {
-          throw new Error("Failed to add to cart");
-        }
+        console.error(err);
       }
-    } catch (err) {
-      toast.error("Failed to add product to cart", {
-        position: "top-right",
-        autoClose: 1500,
-      });
-      console.error(err);
     }
   };
 
@@ -189,7 +189,12 @@ export default function ProductList() {
               <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                 {currentProducts.map((product) => (
                   <div key={product.id} className="group">
-                    <a href="#" onClick={()=>window.location.href=`/ProductDetail/${product.id}`}>
+                    <a
+                      href="#"
+                      onClick={() =>
+                        (window.location.href = `/ProductDetail/${product.id}`)
+                      }
+                    >
                       <div className="w-64 h-64 overflow-hidden rounded-lg shadow-lg">
                         <img
                           alt={product.imageAlt}
@@ -197,7 +202,9 @@ export default function ProductList() {
                           className="w-full h-full object-contain"
                         />
                       </div>
-                      <h3 className="mt-4 text-sm text-gray-700 truncate w-64">{product.name}</h3>
+                      <h3 className="mt-4 text-sm text-gray-700 truncate w-64">
+                        {product.name}
+                      </h3>
                       <p className="mt-1 text-lg font-medium text-gray-900">
                         ${product.price}
                       </p>
