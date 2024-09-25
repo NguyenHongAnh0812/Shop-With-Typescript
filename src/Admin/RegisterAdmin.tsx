@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { API_URL, User } from "../Models/model";
 
 
-const Register: React.FC = () => {
+const RegisterAdmin: React.FC = () => {
   const [user, setUser] = useState<User>({
     name: "",
     email: "",
@@ -59,7 +59,7 @@ const Register: React.FC = () => {
           <div className="flex flex-col items-center">
             <div className="text-center">
               <h1 className="text-2xl xl:text-4xl font-extrabold text-blue-900">
-                Sign up
+                Sign up Admin!
               </h1>
               <p className="text-[12px] text-gray-500">
                 Hey, enter your details to create your account
@@ -116,7 +116,7 @@ const Register: React.FC = () => {
                 </button>
                 <p className="mt-6 text-xs text-gray-600 text-center">
                   Already have an account?{" "}
-                  <a href="/Login">
+                  <a href="/Admin/Login">
                     <span className="text-blue-900 font-semibold">Sign in</span>
                   </a>
                 </p>
@@ -129,4 +129,4 @@ const Register: React.FC = () => {
   );
 };
 
-export default Register;
+export default RegisterAdmin;

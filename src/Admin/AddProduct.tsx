@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { product } from "../Models/model";
+import { API_URL, product } from "../Models/model";
 import { useNavigate } from 'react-router-dom';
 
 interface AddProductProps {
@@ -39,7 +39,7 @@ export const AddProduct: React.FC<AddProductProps> = ({ onClose }) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3001/products", {
+      const response = await fetch(`${API_URL}/products`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

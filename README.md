@@ -1,79 +1,80 @@
+# How to Run Project
 
-# Cách Chạy Project
-
-## Bước 1: Install Node_modules
+## Step 1: Install Node_modules
 
 ```bash
 npm install
 ```
 
-## Bước 2 : Chạy
+## Step 2: Run
 
-- **Đảm bảo json-server phải là bản 0.17.4 tránh trường hợp bị config với json-server-auth vì bản 0.17.4 là bản cũ và cũng là bản ổn định nhất**.
-- **Nếu chưa đúng bản hãy làm theo như sau** : 
+- **Make sure json-server is version 0.17.4 to avoid being configured with json-server-auth because version 0.17.4 is the old version and also the most stable version**.
+- **If the version is not correct, please follow the following** :
 
 ```bash
 npm uninstall json-server
 npm install json-server@0.17
 ```
 
-### Cách 1: Chạy Server và Project Riêng Biệt
+### Method 1: Run Server and Project Separately
 
-1. **Chạy Server trên Port 3001**:
+1. **Run Server on Port 3001**:
 
-   Sử dụng lệnh sau để khởi động server :
+Use the following command to start the server :
 
-   ```bash
-   json-server src/data/db.json -m ./node_modules/json-server-auth --port 3001
-   ```
+```bash
+json-server src/data/db.json -m ./node_modules/json-server-auth --port 3001
+```
 
-2. **Chạy Project trên Port 3000**:
+2. **Run Project on Port 3000**:
 
-    Sử dụng lệnh sau để khởi động project:
+Use the following command to start the project:
 
-    ```bash
-    npm start
-    ```
-    
-### Cách 2: Chạy Server và Project đồng thời
+```bash
+npm start
+```
 
-1. **Sử dụng câu lệnh sau để khởi động cả server và project**:
+### Method 2: Run Server and Project at the same time
 
-    ```bash
-    npm run dev
-    ```
+1. **Use the following command to start both server and project**:
 
-# Tài khoản
+```bash
+npm run dev
+```
 
-## Admin 
+# Resources account
+
+## Admin
 
 - **Email : admin@gmail.com**
 
 - **Password : admin**
 
-## User 
+## User
 
-- **Bạn có thể tự tạo**
+- **You can create yourself**
 
-# Project Description 
+# Project Description
 
-## Các chức năng 
+## Functions
 
-### 1. Đăng ký, đăng nhập.
+### 1. Register, log in for user and admin.
+
+- **Login: "/Admin/Login"**
+- **Register: "/Admin/Register"**
 
 ### 2. Admin
-- **Quản lý sản phẩm với các chức năng thêm, sửa, xoá**.
+- **Manage products with add, edit, delete functions**.
 
 ### 3. User
-- **Có thể xem các mặt hàng của shop**.
-- **Tìm kiếm sản phẩm theo tên**.
-- **Xem các thông tin chi tiết của sản phẩm**.
-- **Thêm sản phẩm vào giỏ hàng ( có thể thêm mã giảm giá để giảm số tiền mua )**.
-- **CheckOut sản phẩm**
+- **Can view shop items**.
 
-### Ngoài ra sản phẩm còn được responsive để phù hợp với mọi thiết bị, thiết kế giao diện UX để tối ưu hoá trai nghiệm của người dùng
+- **Search products by name**.
 
-# Deploy 
+- **View product details**.
 
-## Link : https://shop-with-typescript.netlify.app/
+- **Add products to cart (can add discount codes { code sale 20% : "bigsale", code sale 10% : "sale" } to reduce purchase amount)**.
 
+- **CheckOut products**
+
+### In addition, the product is also responsive to suit all devices, UX interface design to optimize user experience

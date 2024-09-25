@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import { NavigationItem } from "../Components/Navbar";
 import Footer from "../Components/Footer";
-import { cart, product } from "../Models/model";
+import { API_URL, cart, product } from "../Models/model";
 import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 interface User {
@@ -34,7 +34,7 @@ export const ProductDetail = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/products/${id}`);
+        const response = await fetch(`${API_URL}/products/${id}`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -58,7 +58,7 @@ export const ProductDetail = () => {
 
     try {
       const cartResponse = await fetch(
-        `http://localhost:3001/carts?userId=${userData?.user.id}`
+        `${API_URL}/carts?userId=${userData?.user.id}`
       );
       const cartItems: cart[] = await cartResponse.json();
 
@@ -70,7 +70,7 @@ export const ProductDetail = () => {
         const updatedQuantity = existingProduct.quantity + 1;
 
         const updateResponse = await fetch(
-          `http://localhost:3001/carts/${existingProduct.id}`,
+          `${API_URL}/carts/${existingProduct.id}`,
           {
             method: "PATCH",
             headers: {
@@ -89,7 +89,7 @@ export const ProductDetail = () => {
           throw new Error("Failed to update product quantity in cart");
         }
       } else {
-        const addResponse = await fetch("http://localhost:3001/carts", {
+        const addResponse = await fetch(`${API_URL}/carts`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

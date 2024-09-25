@@ -9,6 +9,7 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import { User } from "../Models/model";
 
 export interface NavigationItem {
   name: string;
@@ -24,14 +25,24 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
+interface UserData {
+  accessToken: string;
+  user: User;
+}
+
 const Navbar: React.FC<NavbarProps> = ({ navigationData }) => {
   const [navigation, setNavigation] =
     useState<NavigationItem[]>(navigationData);
+  const usersJson = localStorage.getItem("user");
+  const userData: UserData | null = usersJson ? JSON.parse(usersJson) : null;
+  const accessToken: string | undefined = userData?.accessToken;
+  const rule: string | undefined = userData?.user?.rule;
   const [checkCart, setCheckCart] = useState(false);
-  const handleUpdate= () : void=>{ 
+  const handleUpdate = (): void => {
     console.log(checkCart);
-    setCheckCart(!checkCart)
-  }
+    setCheckCart(!checkCart);
+  };
+
   return (
     <>
       <Disclosure as="nav" className="bg-gray-800 fixed w-full">
@@ -130,9 +141,14 @@ const Navbar: React.FC<NavbarProps> = ({ navigationData }) => {
                   </MenuItem>
                   <MenuItem>
                     <a
-                      href="/Login"
+                      href="#"
                       className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
-                      onClick={()=>{localStorage.removeItem("user")}}
+                      onClick={() => {
+                        if(rule == 'user')window.location.href='/Login'
+                        else window.location.href='/Admin/Login'
+
+                        localStorage.removeItem("user");
+                      }}
                     >
                       Sign out
                     </a>

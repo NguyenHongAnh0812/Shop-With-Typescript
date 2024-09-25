@@ -10,6 +10,8 @@ import Register from "./Pages/Register";
 import { AdminProductList } from "./Admin/AdminProductList";
 import { PrivateRouter } from "./Components/PrivateRouter";
 import { Cart } from "./Pages/Cart";
+import LoginAdmin from "./Admin/LoginAdmin";
+import RegisterAdmin from "./Admin/RegisterAdmin";
 function App() {
   return (
     <Router>
@@ -20,6 +22,8 @@ function App() {
         <Route path="/Admin" element={<PrivateRouter />}>
           <Route path="/Admin/ProductList" element={<AdminProductList />} />
         </Route>
+        <Route path="/Admin/Login" element={<LoginAdmin />} />
+        <Route path="/Admin/Register" element={<RegisterAdmin />} />
         <Route path="/ProductList" element={<ProductList />} />
         <Route path="/ProductDetail/:id" element={<ProductDetail />} />
         <Route path="/AboutUs" element={<AboutUs />} />

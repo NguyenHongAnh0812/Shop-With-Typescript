@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Minus, Plus, ChevronDown } from "lucide-react";
-import { cart } from "../Models/model";
+import { API_URL, cart } from "../Models/model";
 import Navbar, { NavigationItem } from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import axios from "axios";
@@ -37,7 +37,7 @@ export const Cart: React.FC = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get<cart[]>(
-          `http://localhost:3001/carts?userId=${userData?.user?.id}`
+          `${API_URL}/carts?userId=${userData?.user?.id}`
         );
         setCartItems(response.data);
       } catch (err) {
@@ -63,7 +63,7 @@ export const Cart: React.FC = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:3001/carts/${cart.id}?userId=${userData?.user.id}`,
+        `${API_URL}/carts/${cart.id}?userId=${userData?.user.id}`,
         {
           method: "PUT",
           headers: {
@@ -98,7 +98,7 @@ export const Cart: React.FC = () => {
   const removeItem = async (id: string | undefined) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/carts/${id}?userId=${userData?.user.id}`,
+        `${API_URL}/carts/${id}?userId=${userData?.user.id}`,
         {
           method: "DELETE",
           headers: {
@@ -132,7 +132,7 @@ export const Cart: React.FC = () => {
       try {
         const deletePromises = cartItems.map((item) =>
           fetch(
-            `http://localhost:3001/carts/${item.id}?userId=${userData?.user.id}`,
+            `${API_URL}/carts/${item.id}?userId=${userData?.user.id}`,
             {
               method: "DELETE",
             }

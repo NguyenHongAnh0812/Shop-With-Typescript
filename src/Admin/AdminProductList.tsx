@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { product } from "../Models/model";
+import { API_URL, product } from "../Models/model";
 import { AddProduct } from "./AddProduct";
 import { EditProduct } from "./EditProduct";
 import { Alert } from "@material-tailwind/react";
@@ -32,7 +32,7 @@ export const AdminProductList = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get<product[]>(
-          "http://localhost:3001/products"
+          `${API_URL}/products`
         );
         setProducts(response.data);
         setFilteredProducts(response.data);
@@ -102,7 +102,7 @@ export const AdminProductList = () => {
   const handleDelete = async (product: product) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/products/${product.id}`,
+        `${API_URL}/products/${product.id}`,
         {
           method: "DELETE",
           headers: {

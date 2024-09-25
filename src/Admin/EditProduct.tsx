@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { product } from "../Models/model";
+import { API_URL, product } from "../Models/model";
 import { useNavigate } from "react-router-dom";
 
 interface EditProductProps {
@@ -55,7 +55,7 @@ export const EditProduct: React.FC<EditProductProps> = ({
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:3001/products/${product.id}`,
+        `${API_URL}/products/${product.id}`,
         {
           method: "PUT",
           headers: {

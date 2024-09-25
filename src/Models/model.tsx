@@ -18,3 +18,5 @@ export interface cart extends product {
     userId: string;
     quantity: number;
 }
+
+export const API_URL = "http://localhost:3001"

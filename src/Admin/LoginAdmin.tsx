@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../Models/model";
 
-const Login: React.FC = () => {
+const LoginAdmin: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -30,7 +30,7 @@ const Login: React.FC = () => {
       setSuccess("Login successful!");
       setError("");
       localStorage.setItem("user",JSON.stringify(data))
-      navigate("/ProductList"); // Điều hướng sau khi đăng nhập thành công
+      navigate("/Admin/ProductList"); // Điều hướng sau khi đăng nhập thành công
     } catch (error: any) {
       setError(error.message);
       setSuccess("");
@@ -47,7 +47,7 @@ const Login: React.FC = () => {
           }}
         ></div>
         <div className="w-full p-8 lg:w-1/2">
-          <p className="text-xl text-gray-600 text-center">Welcome back!</p>
+          <p className="text-xl text-gray-600 text-center">Welcome back Admin!</p>
           {error && <p className="text-red-500 text-center">{error}</p>}
           {success && <p className="text-green-500 text-center">{success}</p>}
           
@@ -109,7 +109,7 @@ const Login: React.FC = () => {
           </a>
           <div className="mt-4 flex items-center w-full text-center">
             <a
-              href="/Register"
+              href="/Admin/Register"
               className="text-xs text-gray-500 capitalize text-center w-full"
             >
               Don&apos;t have any account yet?
@@ -122,4 +122,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default LoginAdmin;
