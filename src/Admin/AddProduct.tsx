@@ -47,7 +47,7 @@ export const AddProduct: React.FC<AddProductProps> = ({ onClose }) => {
         body: JSON.stringify(productData),
       });
       console.log(response);
-      // Reset form sau khi thêm sản phẩm thành công
+      // Reset form when add product succesfull
       setProduct({
         name: "",
         description: "",
@@ -56,7 +56,7 @@ export const AddProduct: React.FC<AddProductProps> = ({ onClose }) => {
         imageAlt: "",
       });
       setImage(null);
-      onClose(); // Đóng modal
+      onClose(); // close modal
       alert(`Add succesful`)
       window.location.href = '/Admin/ProductList'
     } catch (error) {
@@ -111,7 +111,7 @@ export const AddProduct: React.FC<AddProductProps> = ({ onClose }) => {
             />
             <label htmlFor="fileInput" className="cursor-pointer">
               <span className="text-gray-500">
-                Kéo và thả ảnh vào đây hoặc nhấp để chọn
+              Drag and drop images here or click to select
               </span>
             </label>
           </div>

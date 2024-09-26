@@ -8,7 +8,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { Navigate } from "react-router-dom";
 import ShippingForm from "./FormShipUser";
 interface User {
-  rule: string; // "user" hoặc "admin"
+  rule: string; // "user" or "admin"
   email: string;
   name: string;
   id: string;
@@ -56,8 +56,8 @@ export const Cart: React.FC = () => {
         );
         setCartItems(response.data);
       } catch (err) {
-        // setError("Lấy sản phẩm thất bại");
-        console.error(err); // Ghi nhận lỗi
+        
+        console.error(err); 
       }
     };
     fetchProducts();
@@ -67,7 +67,7 @@ export const Cart: React.FC = () => {
     newQuantity: number,
     items: cart[]
   ) => {
-    // Cập nhật trạng thái cục bộ một cách lạc quan
+    
     const updatedItems = items.map((item) =>
       item.id === cart.id
         ? { ...item, quantity: Math.max(1, newQuantity) }
@@ -86,7 +86,7 @@ export const Cart: React.FC = () => {
           },
           body: JSON.stringify({
             ...cart,
-            quantity: Math.max(1, newQuantity), // Cập nhật số lượng trong body
+            quantity: Math.max(1, newQuantity), 
           }),
         }
       );
@@ -100,7 +100,7 @@ export const Cart: React.FC = () => {
         autoClose: 1500,
       });
     } catch (err) {
-      // Quay lại trạng thái trước đó nếu cập nhật không thành công
+      
       setCartItems(items);
       toast.error("Failed to update quantity", {
         position: "top-right",
@@ -127,7 +127,7 @@ export const Cart: React.FC = () => {
       }
 
       console.log("Product deleted successfully:", response);
-      // onClose(); // Close modal
+      
       toast.success(`Delete succesful`, {
         position: "top-right",
         autoClose: 1500,
@@ -310,7 +310,7 @@ export const Cart: React.FC = () => {
               cartItems={cartItems}
               total={Number((total + 6 - (total * discount) / 100).toFixed(2))}
             />{" "}
-            {/* Truyền hàm đóng modal */}
+            
           </div>
         )}
       </div>

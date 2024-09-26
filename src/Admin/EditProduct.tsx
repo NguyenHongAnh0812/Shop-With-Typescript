@@ -123,7 +123,7 @@ export const EditProduct: React.FC<EditProductProps> = ({
             />
             <label htmlFor="fileInput" className="cursor-pointer">
               <span className="text-gray-500">
-                Kéo và thả ảnh vào đây hoặc nhấp để chọn
+              Drag and drop images here or click to select
               </span>
             </label>
           </div>

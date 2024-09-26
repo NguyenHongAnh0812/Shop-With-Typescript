@@ -7,7 +7,7 @@ import Footer from "../Components/Footer";
 import { toast, ToastContainer } from "react-toastify";
 
 interface User {
-  rule: string; // "user" hoặc "admin"
+  rule: string; // "user" or "admin"
   email: string;
   name: string;
   id: string;
@@ -91,8 +91,8 @@ const AdminOrder = () => {
         <h1 className="text-2xl font-bold mb-4 text-center my-20">
           Order List
         </h1>
-        <div className="overflow-x-auto">
-          <div className="overflow-y-auto h-[350px] flex justify-center items-center">
+        <div className="overflow-x-auto mt-10">
+          <div className="overflow-y-auto h-[400px] flex justify-center items-center">
             {orderData.length === 0 ? (
               <p className="text-center text-gray-500">No Order</p>
             ) : (

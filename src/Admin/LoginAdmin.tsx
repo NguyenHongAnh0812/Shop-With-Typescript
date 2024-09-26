@@ -26,11 +26,11 @@ const LoginAdmin: React.FC = () => {
       }
 
       const data = await response.json();
-      console.log(data); // Xử lý dữ liệu người dùng sau khi đăng nhập thành công
+      console.log(data); 
       setSuccess("Login successful!");
       setError("");
       localStorage.setItem("user",JSON.stringify(data))
-      navigate("/Admin/ProductList"); // Điều hướng sau khi đăng nhập thành công
+      navigate("/Admin/ProductList"); 
     } catch (error: any) {
       setError(error.message);
       setSuccess("");

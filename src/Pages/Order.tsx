@@ -5,7 +5,7 @@ import Navbar from "../Components/Navbar";
 import { NavigationItem } from "../Components/Navbar";
 import Footer from "../Components/Footer";
 interface User {
-    rule: string; // "user" hoặc "admin"
+    rule: string; // "user" or "admin"
     email: string;
     name: string;
     id: string;
@@ -58,7 +58,7 @@ const Order = () => {
         <h1 className="text-2xl font-bold mb-4 text-center my-20">Order List</h1>
         <div className="overflow-x-auto">
           <div className="overflow-y-auto h-[350px] flex justify-center items-center">
-            {orderData.length === 0 ? ( // Kiểm tra số lượng đơn hàng
+            {orderData.length === 0 ? ( 
               <p className="text-center text-gray-500">No Order</p>
             ) : (
               <table className="min-w-full divide-y divide-gray-200 h-full">

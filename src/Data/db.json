@@ -90,7 +90,7 @@
       "id": "1",
       "name": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
       "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday.",
-      "price": 109.95,
+      "price": "109.96",
       "imageSrc": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
       "imageAlt": "Fjallraven - Foldsack No. 1 Backpack"
     },
@@ -579,7 +579,49 @@
       ],
       "date": "26/9/2024",
       "total": 33.79,
-      "status": "Pending"
+      "status": "Delivered"
+    },
+    {
+      "id": "c172fe19-36b2-4a38-bc00-2e2af6978da6",
+      "userId": "VUPIYV_",
+      "name": "Nguyễn Hồng Ánh",
+      "address": "Hoài Đức, Hà Nội",
+      "phone": "0987654321",
+      "cartItems": [
+        {
+          "userId": "VUPIYV_",
+          "name": "White Gold Plated Princess",
+          "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her.",
+          "price": 9.99,
+          "imageSrc": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
+          "imageAlt": "White Gold Plated Princess Ring",
+          "quantity": 3,
+          "id": 24
+        },
+        {
+          "userId": "VUPIYV_",
+          "name": "Mens Casual Premium Slim Fit T-Shirts",
+          "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing.",
+          "price": 22.3,
+          "imageSrc": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+          "imageAlt": "Mens Casual Premium Slim Fit T-Shirts",
+          "quantity": 1,
+          "id": 25
+        },
+        {
+          "userId": "VUPIYV_",
+          "name": "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
+          "description": "Faux leather material for style and comfort with removable hood.",
+          "price": 29.95,
+          "imageSrc": "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg",
+          "imageAlt": "Lock and Love Women's Biker Jacket",
+          "quantity": 1,
+          "id": 26
+        }
+      ],
+      "date": "26/9/2024",
+      "total": 88.22,
+      "status": "In Transit"
     }
   ]
 }

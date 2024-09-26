@@ -47,7 +47,7 @@ export default function ProductList() {
         }
         const data = await response.json();
         setProducts(data);
-        setFilteredProducts(data); // Khởi tạo filteredProducts
+        setFilteredProducts(data);
       } catch (err) {
         setError("Lấy sản phẩm thất bại");
         console.error(err);
@@ -163,7 +163,6 @@ export default function ProductList() {
             All Products
           </h2>
 
-          {/* Tìm kiếm */}
           <div className="mb-4 flex justify-between">
             <input
               type="text"
@@ -182,7 +181,6 @@ export default function ProductList() {
             </select>
           </div>
 
-          {/* Hiển thị sản phẩm hoặc thông báo không có sản phẩm */}
           {filteredProducts.length === 0 ? (
             <p className="text-center text-gray-500">No products found.</p>
           ) : (
@@ -223,7 +221,6 @@ export default function ProductList() {
                 ))}
               </div>
 
-              {/* Phân trang */}
               <div className="mt-4 flex justify-end">
                 {Array.from(
                   { length: Math.ceil(filteredProducts.length / itemsPerPage) },

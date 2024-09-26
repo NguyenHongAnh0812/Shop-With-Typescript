@@ -34,8 +34,7 @@ const OrderDetail: React.FC<{ order: order; onClose: () => void }> = ({
         </div>
         <h3 className="text-lg font-semibold mb-2">Cart Items</h3>
         <div className="overflow-y-auto max-h-[300px] relative">
-          {" "}
-          {/* Thêm relative cho div này */}
+          
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-100 sticky top-0 z-10">
               <tr>

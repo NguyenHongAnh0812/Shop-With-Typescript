@@ -43,7 +43,6 @@ export const ProductDetail = () => {
         const data = await response.json();
         setProduct(data);
       } catch (err) {
-        // setError("Lấy sản phẩm thất bại");
         console.error(err);
       }
     };
@@ -132,7 +131,6 @@ export const ProductDetail = () => {
       <div className="bg-white">
         <div className="mx-auto max-w-2xl py-16 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 mt-20 mb-10">
-            {/* Product image */}
             <div className="aspect-w-2 aspect-h-1 rounded-lg bg-gray-200 overflow-hidden">
               <img
                 alt={product.imageAlt}
