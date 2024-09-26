@@ -189,24 +189,27 @@ export default function ProductList() {
             <>
               <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                 {currentProducts.map((product) => (
-                  <div key={product.id} className="group">
+                  <div
+                    key={product.id}
+                    className="group flex flex-col justify-center items-center"
+                  >
                     <a
                       href="#"
                       onClick={() =>
                         (window.location.href = `/ProductDetail/${product.id}`)
                       }
                     >
-                      <div className="w-64 h-64 overflow-hidden rounded-lg shadow-lg">
+                      <div className="w-64 h-64 overflow-hidden rounded-lg shadow-lg flex justify-center items-center">
                         <img
                           alt={product.imageAlt}
                           src={product.imageSrc}
                           className="w-full h-full object-contain"
                         />
                       </div>
-                      <h3 className="mt-4 text-sm text-gray-700 truncate w-64">
+                      <h3 className="mt-4 text-sm text-gray-700 truncate w-64 text-center">
                         {product.name}
                       </h3>
-                      <p className="mt-1 text-lg font-medium text-gray-900">
+                      <p className="mt-1 text-lg font-medium text-gray-900 text-center">
                         ${product.price}
                       </p>
                     </a>

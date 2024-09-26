@@ -316,16 +316,6 @@
       "imageAlt": "Opna Women's Short Sleeve",
       "quantity": 1,
       "id": 23
-    },
-    {
-      "userId": "giSajqm",
-      "name": "Opna Women's Short Sleeve Moisture",
-      "description": "Lightweight, roomy, and highly breathable with moisture wicking fabric.",
-      "price": 7.95,
-      "imageSrc": "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
-      "imageAlt": "Opna Women's Short Sleeve",
-      "quantity": 1,
-      "id": 24
     }
   ],
   "orders": [
@@ -464,6 +454,48 @@
       "date": "26/9/2024",
       "total": 44.78,
       "status": "In Transit"
+    },
+    {
+      "id": "ac3bd643-9f15-43b8-aacb-6df7db38cccd",
+      "userId": "giSajqm",
+      "name": "Nguyễn Hồng Ánh 123",
+      "address": "Quất Lâm, Giao Thuỷ, Nam Định",
+      "phone": "0987654321",
+      "cartItems": [
+        {
+          "userId": "giSajqm",
+          "name": "Opna Women's Short Sleeve Moisture",
+          "description": "Lightweight, roomy, and highly breathable with moisture wicking fabric.",
+          "price": 7.95,
+          "imageSrc": "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
+          "imageAlt": "Opna Women's Short Sleeve",
+          "quantity": 1,
+          "id": 24
+        },
+        {
+          "userId": "giSajqm",
+          "name": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+          "description": "Inspired by the mythical water dragon that protects the ocean's pearl.",
+          "price": 695,
+          "imageSrc": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
+          "imageAlt": "John Hardy Women's Legends Naga Bracelet",
+          "quantity": 2,
+          "id": 25
+        },
+        {
+          "userId": "giSajqm",
+          "name": "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
+          "description": "21.5 inches Full HD widescreen IPS display with Radeon free Sync technology.",
+          "price": 599,
+          "imageSrc": "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg",
+          "imageAlt": "Acer SB220Q 21.5 inches Monitor",
+          "quantity": 4,
+          "id": 26
+        }
+      ],
+      "date": "26/9/2024",
+      "total": 3420.55,
+      "status": "Pending"
     }
   ]
 }

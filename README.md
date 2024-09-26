@@ -66,6 +66,8 @@ npm run dev
 ### 2. Admin
 - **Manage products with add, edit, delete functions**.
 
+- **Manage order status such as "Pending", "In Transit" ,"Delivered"**.
+
 ### 3. User
 - **Can view shop items**.
 
@@ -76,5 +78,7 @@ npm run dev
 - **Add products to cart (can add discount codes { code sale 20% : "bigsale", code sale 10% : "sale" } to reduce purchase amount)**.
 
 - **CheckOut products**
+
+- **Users can place orders with their information**.
 
 ### In addition, the product is also responsive to suit all devices, UX interface design to optimize user experience
