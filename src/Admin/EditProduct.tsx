@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { API_URL, product } from "../Models/model";
 import { useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 interface EditProductProps {
   product: product;
@@ -24,6 +25,7 @@ export const EditProduct: React.FC<EditProductProps> = ({
 
   useEffect(() => {
     setProduct({
+      id: uuidv4(),
       name: product.name,
       description: product.description,
       price: product.price,

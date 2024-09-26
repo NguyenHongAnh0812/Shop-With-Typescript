@@ -25,6 +25,7 @@ export default function ProductList() {
     { name: "Product", href: "/ProductList", current: true },
     { name: "About Us", href: "/AboutUs", current: false },
     { name: "Cart", href: "/Cart", current: false },
+    { name: "Order", href: "/Order", current: false },
   ];
 
   const [products, setProducts] = useState<product[]>([]);

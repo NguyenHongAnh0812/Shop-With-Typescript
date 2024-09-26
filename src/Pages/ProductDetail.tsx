@@ -19,6 +19,7 @@ interface UserData {
 export const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<product>({
+    id: "",
     name: "",
     description: "",
     price: 0,
@@ -30,6 +31,7 @@ export const ProductDetail = () => {
     { name: "Product", href: "/ProductList", current: false },
     { name: "About Us", href: "/AboutUs", current: false },
     { name: "Cart", href: "/Cart", current: false },
+    { name: "Order", href: "/Order", current: false },
   ];
   useEffect(() => {
     const fetchProducts = async () => {

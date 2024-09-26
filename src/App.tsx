@@ -12,6 +12,9 @@ import { PrivateRouter } from "./Components/PrivateRouter";
 import { Cart } from "./Pages/Cart";
 import LoginAdmin from "./Admin/LoginAdmin";
 import RegisterAdmin from "./Admin/RegisterAdmin";
+import Order from "./Pages/Order";
+import AdminOrder from "./Admin/AdminOrder";
+
 function App() {
   return (
     <Router>
@@ -21,6 +24,7 @@ function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/Admin" element={<PrivateRouter />}>
           <Route path="/Admin/ProductList" element={<AdminProductList />} />
+          <Route path="/Admin/Order" element={<AdminOrder />} />
         </Route>
         <Route path="/Admin/Login" element={<LoginAdmin />} />
         <Route path="/Admin/Register" element={<RegisterAdmin />} />
@@ -28,6 +32,7 @@ function App() {
         <Route path="/ProductDetail/:id" element={<ProductDetail />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Cart" element={<Cart />} />
+        <Route path="/Order" element={<Order />} />
       </Routes>
     </Router>
   );

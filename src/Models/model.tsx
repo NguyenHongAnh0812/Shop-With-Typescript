@@ -7,7 +7,7 @@ export interface User {
     rule: string;
 }
 export interface product {
-    id?: string;
+    id: string;
     name: string;
     description: string;
     price: number;
@@ -18,5 +18,15 @@ export interface cart extends product {
     userId: string;
     quantity: number;
 }
-
+export interface order {
+    id: string;
+    userId: string | undefined;
+    name: string,
+    address: string,
+    phone: string,
+    cartItems: cart[],
+    date: string;
+    total: number,
+    status: "Delivered" | "Pending" | "In Transit";
+  }
 export const API_URL = "http://localhost:3001"

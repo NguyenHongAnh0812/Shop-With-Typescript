@@ -8,6 +8,7 @@ export function AboutUs() {
     { name: "Product", href: "/ProductList", current: false },
     { name: "About Us", href: "/AboutUs", current: true },
     { name: "Cart", href: "/Cart", current: false },
+    { name: "Order", href: "/Order", current: false },
   ];
   return (
     <>

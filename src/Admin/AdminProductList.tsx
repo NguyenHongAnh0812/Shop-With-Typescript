@@ -78,10 +78,8 @@ export const AdminProductList = () => {
   );
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
   const navigationData: NavigationItem[] = [
-    { name: "Home", href: "/", current: false },
-    { name: "Product", href: "/ProductList", current: false },
-    { name: "About Us", href: "/AboutUs", current: false },
-    // { name: "Cart", href: "/Cart", current: false },
+    { name: "Products", href: "/Admin/ProductList", current: true },
+    { name: "Orders", href: "/Admin/Order", current: false },
   ];
 
   const handleNext = () => {

@@ -9,6 +9,7 @@ export const Home = () => {
         { name: "Product", href: "/ProductList", current: false },
         { name: "About Us", href: "/AboutUs", current: false},
         { name: "Cart", href: "/Cart", current: false },
+        { name: "Order", href: "/Order", current: false},
       ];
     return (
         <>

@@ -6,6 +6,7 @@ import Footer from "../Components/Footer";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import { Navigate } from "react-router-dom";
+import ShippingForm from "./FormShipUser";
 interface User {
   rule: string; // "user" hoặc "admin"
   email: string;
@@ -23,6 +24,19 @@ export const Cart: React.FC = () => {
   const [discount, setDiscount] = useState<number>(0);
   const [item, setItem] = useState<cart>();
   const [codeDiscount, setCodeDiscount] = useState<string>("");
+  const [isModalShipingOpen, setIsModalShipingOpen] = useState<boolean>(false);
+
+  const handleCloseModalShiping = () => {
+    setIsModalShipingOpen(false);
+  };
+  const handleOpenModalShiping = () => {
+    if (cartItems.length == 0) {
+      toast.error("Please add items", {
+        position: "top-right",
+        autoClose: 1500,
+      });
+    } else setIsModalShipingOpen(true);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCodeDiscount(e.target.value);
@@ -32,6 +46,7 @@ export const Cart: React.FC = () => {
     { name: "Product", href: "/ProductList", current: false },
     { name: "About Us", href: "/AboutUs", current: false },
     { name: "Cart", href: "/Cart", current: true },
+    { name: "Order", href: "/Order", current: false },
   ];
   useEffect(() => {
     const fetchProducts = async () => {
@@ -122,37 +137,6 @@ export const Cart: React.FC = () => {
       console.error("Error deleting product:", error);
     }
   };
-  const handleCheckOut = async () => {
-    if (cartItems.length == 0) {
-      toast.error("No Item, please add item", {
-        position: "top-right",
-        autoClose: 1500,
-      });
-    } else {
-      try {
-        const deletePromises = cartItems.map((item) =>
-          fetch(
-            `${API_URL}/carts/${item.id}?userId=${userData?.user.id}`,
-            {
-              method: "DELETE",
-            }
-          )
-        );
-
-        await Promise.all(deletePromises);
-
-        // Cập nhật state và thông báo
-        setCartItems([]);
-        toast.success(`CheckOut succesful`, {
-          position: "top-right",
-          autoClose: 1500,
-        });
-      } catch (error) {
-        console.error("Failed to remove all items:", error);
-        alert("Failed to remove all items.");
-      }
-    }
-  };
 
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -169,9 +153,9 @@ export const Cart: React.FC = () => {
     return <Navigate to="/Login" />;
   }
   const handleDiscount = () => {
-    if(codeDiscount.toUpperCase() == "BIGSALE") setDiscount(20)
-    if(codeDiscount.toUpperCase() == "SALE") setDiscount(10)
-    setCodeDiscount("")
+    if (codeDiscount.toUpperCase() == "BIGSALE") setDiscount(20);
+    if (codeDiscount.toUpperCase() == "SALE") setDiscount(10);
+    setCodeDiscount("");
   };
   return (
     <>
@@ -278,7 +262,10 @@ export const Cart: React.FC = () => {
 
             <ul className="text-gray-800 mt-8 space-y-4">
               <li className="flex flex-wrap gap-4 text-base">
-                Discount <span className="ml-auto font-bold">{discount}% = ${(total*discount/100).toFixed(2)}</span>
+                Discount{" "}
+                <span className="ml-auto font-bold">
+                  {discount}% = ${((total * discount) / 100).toFixed(2)}
+                </span>
               </li>
               <li className="flex flex-wrap gap-4 text-base">
                 Shipping <span className="ml-auto font-bold">$2.00</span>
@@ -287,13 +274,16 @@ export const Cart: React.FC = () => {
                 Tax <span className="ml-auto font-bold">$4.00</span>
               </li>
               <li className="flex flex-wrap gap-4 text-base font-bold">
-                Total <span className="ml-auto">${(total + 6 - total*discount/100).toFixed(2)}</span>
+                Total{" "}
+                <span className="ml-auto">
+                  ${(total + 6 - (total * discount) / 100).toFixed(2)}
+                </span>
               </li>
             </ul>
 
             <div className="mt-8 space-y-2">
               <button
-                onClick={() => handleCheckOut()}
+                onClick={() => handleOpenModalShiping()}
                 type="button"
                 className="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-blue-600 hover:bg-blue-700 text-white rounded-md"
               >
@@ -309,6 +299,20 @@ export const Cart: React.FC = () => {
             </div>
           </div>
         </div>
+        {isModalShipingOpen && (
+          <div className="fixed inset-0 flex items-center justify-center z-50">
+            <div
+              className="fixed inset-0 bg-black opacity-50"
+              onClick={handleCloseModalShiping}
+            ></div>
+            <ShippingForm
+              onClose={handleCloseModalShiping}
+              cartItems={cartItems}
+              total={Number((total + 6 - (total * discount) / 100).toFixed(2))}
+            />{" "}
+            {/* Truyền hàm đóng modal */}
+          </div>
+        )}
       </div>
 
       <Footer />
