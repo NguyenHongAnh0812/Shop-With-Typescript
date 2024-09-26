@@ -496,6 +496,48 @@
       "date": "26/9/2024",
       "total": 3420.55,
       "status": "Pending"
+    },
+    {
+      "id": "77751f7c-7049-4270-8226-6ccfda5ad61a",
+      "userId": "giSajqm",
+      "name": "Ánh 2002",
+      "address": "Quất Lâm, Giao Thuỷ, Nam Định",
+      "phone": "0397307812",
+      "cartItems": [
+        {
+          "userId": "giSajqm",
+          "name": "Opna Women's Short Sleeve Moisture",
+          "description": "Lightweight, roomy, and highly breathable with moisture wicking fabric.",
+          "price": 7.95,
+          "imageSrc": "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
+          "imageAlt": "Opna Women's Short Sleeve",
+          "quantity": 4,
+          "id": 24
+        },
+        {
+          "userId": "giSajqm",
+          "name": "MBJ Women's Solid Short Sleeve Boat Neck V",
+          "description": "Lightweight fabric with great stretch for comfort, made in the USA.",
+          "price": 9.85,
+          "imageSrc": "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
+          "imageAlt": "MBJ Women's Solid Short Sleeve",
+          "quantity": 1,
+          "id": 25
+        },
+        {
+          "userId": "giSajqm",
+          "name": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+          "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings made of 316L Stainless Steel.",
+          "price": 10.99,
+          "imageSrc": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
+          "imageAlt": "Pierced Owl Rose Gold Plated Earrings",
+          "quantity": 1,
+          "id": 26
+        }
+      ],
+      "date": "26/9/2024",
+      "total": 48.11,
+      "status": "Pending"
     }
   ]
 }
