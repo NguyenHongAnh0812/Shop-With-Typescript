@@ -57,7 +57,7 @@ const AdminOrder = () => {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${userData?.accessToken}`,
+          Authorization: `Bearer ${userData?.accessToken}`,
         },
         body: JSON.stringify({ status: newStatus }),
       });
@@ -88,7 +88,9 @@ const AdminOrder = () => {
       <Navbar navigationData={navigationData} />
       <ToastContainer />
       <div className="font-sans mx-auto max-w-screen-xl bg-white py-4 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-2xl font-bold mb-4 text-center my-20">Order List</h1>
+        <h1 className="text-2xl font-bold mb-4 text-center my-20">
+          Order List
+        </h1>
         <div className="overflow-x-auto">
           <div className="overflow-y-auto h-[350px] flex justify-center items-center">
             {orderData.length === 0 ? (
@@ -113,7 +115,9 @@ const AdminOrder = () => {
                       <td className="w-1/5 px-4 py-2">
                         <select
                           value={order.status}
-                          onChange={(e) => updateOrderStatus(order.id, e.target.value)}
+                          onChange={(e) =>
+                            updateOrderStatus(order.id, e.target.value)
+                          }
                           className={`font-bold ${
                             order.status === "Pending"
                               ? "text-red-500"
@@ -145,7 +149,10 @@ const AdminOrder = () => {
             )}
           </div>
           {isOpen && orderDetail && (
-            <AdminOrderDetail order={orderDetail} onClose={() => setIsOpen(false)} />
+            <AdminOrderDetail
+              order={orderDetail}
+              onClose={() => setIsOpen(false)}
+            />
           )}
         </div>
       </div>

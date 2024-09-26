@@ -37,11 +37,13 @@ const AdminOrderDetail: React.FC<{ order: order; onClose: () => void }> = ({
           {" "}
           {/* Thêm relative cho div này */}
           <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-100 sticky top-0 z-10">
+            <thead className="bg-gray-100">
               <tr>
-                <th className="px-4 py-2 text-left">Product</th>
-                <th className="px-4 py-2 text-left">Price</th>
-                <th className="px-4 py-2 text-left">Quantity</th>
+                <th className="w-1/5 px-4 py-2 text-left">Order ID</th>
+                <th className="w-1/5 px-4 py-2 text-left">Date</th>
+                <th className="w-1/5 px-4 py-2 text-left">Name</th>
+                <th className="w-1/5 px-4 py-2 text-left">Status</th>
+                <th className="w-1/5 px-4 py-2 text-left">Action</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
