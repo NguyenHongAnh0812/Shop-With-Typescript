@@ -87,74 +87,65 @@ const AdminOrder = () => {
     <>
       <Navbar navigationData={navigationData} />
       <ToastContainer />
-      <div className="font-sans mx-auto max-w-screen-xl bg-white py-4 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-2xl font-bold mb-4 text-center my-20">
-          Order List
-        </h1>
-        <div className="overflow-x-auto mt-10">
-          <div className="overflow-y-auto h-[400px] flex justify-center items-center">
-            {orderData.length === 0 ? (
-              <p className="text-center text-gray-500">No Order</p>
-            ) : (
-              <table className="min-w-full divide-y divide-gray-200 h-full">
-                <thead className="bg-gray-100">
-                  <tr>
-                    <th className="w-1/5 px-4 py-2 text-left">Order ID</th>
-                    <th className="w-1/5 px-4 py-2 text-left">Date</th>
-                    <th className="w-1/5 px-4 py-2 text-left">Name</th>
-                    <th className="w-1/5 px-4 py-2 text-left">Status</th>
-                    <th className="w-1/5 px-4 py-2 text-left">Action</th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200 h-1/5">
-                  {orderData.map((order) => (
-                    <tr key={order.id}>
-                      <td className="w-1/5 px-4 py-2">{order.id}</td>
-                      <td className="w-1/5 px-4 py-2">{order.date}</td>
-                      <td className="w-1/5 px-4 py-2">{order.name}</td>
-                      <td className="w-1/5 px-4 py-2">
-                        <select
-                          value={order.status}
-                          onChange={(e) =>
-                            updateOrderStatus(order.id, e.target.value)
-                          }
-                          className={`font-bold ${
-                            order.status === "Pending"
-                              ? "text-red-500"
-                              : order.status === "Delivered"
-                              ? "text-green-500"
-                              : order.status === "In Transit"
-                              ? "text-blue-500"
-                              : ""
-                          }`}
-                          disabled={order.status === "Delivered"}
-                        >
-                          <option value="Pending">Pending</option>
-                          <option value="In Transit">In Transit</option>
-                          <option value="Delivered">Delivered</option>
-                        </select>
-                      </td>
-                      <td className="w-1/5 px-4 py-2">
-                        <button
-                          className="text-blue-600 hover:text-blue-900"
-                          onClick={() => handleOrderDetail(order)}
-                        >
-                          Order Detail
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
-          </div>
-          {isOpen && orderDetail && (
-            <AdminOrderDetail
-              order={orderDetail}
-              onClose={() => setIsOpen(false)}
-            />
-          )}
+      <div className="overflow-x-auto flex justify-center">
+        <div className="overflow-y-auto h-[400px] mt-20 max-w-[1200px]">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-100 sticky top-0 z-10">
+              <tr>
+                <th className="px-4 py-2 text-left">Order ID</th>
+                <th className="px-4 py-2 text-left">Date</th>
+                <th className="px-4 py-2 text-left">Name</th>
+                <th className="px-4 py-2 text-left">Status</th>
+                <th className="px-4 py-2 text-left">Action</th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200 h-1/5 overflow-y-auto">
+              {orderData.map((order) => (
+                <tr key={order.id}>
+                  <td className="w-1/5 px-4 py-2">{order.id}</td>
+                  <td className="w-1/5 px-4 py-2">{order.date}</td>
+                  <td className="w-1/5 px-4 py-2">{order.name}</td>
+                  <td className="w-1/5 px-4 py-2">
+                    <select
+                      value={order.status}
+                      onChange={(e) =>
+                        updateOrderStatus(order.id, e.target.value)
+                      }
+                      className={`font-bold ${
+                        order.status === "Pending"
+                          ? "text-red-500"
+                          : order.status === "Delivered"
+                          ? "text-green-500"
+                          : order.status === "In Transit"
+                          ? "text-blue-500"
+                          : ""
+                      }`}
+                      disabled={order.status === "Delivered"}
+                    >
+                      <option value="Pending">Pending</option>
+                      <option value="In Transit">In Transit</option>
+                      <option value="Delivered">Delivered</option>
+                    </select>
+                  </td>
+                  <td className="w-1/5 px-4 py-2">
+                    <button
+                      className="text-blue-600 hover:text-blue-900"
+                      onClick={() => handleOrderDetail(order)}
+                    >
+                      Order Detail
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
+        {isOpen && orderDetail && (
+          <AdminOrderDetail
+            order={orderDetail}
+            onClose={() => setIsOpen(false)}
+          />
+        )}
       </div>
       <Footer />
     </>
