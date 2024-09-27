@@ -8,39 +8,13 @@ npm install
 
 ## Step 2: Run
 
-- **Make sure json-server is version 0.17.4 to avoid being configured with json-server-auth because version 0.17.4 is the old version and also the most stable version**.
-- **If the version is not correct, please follow the following** :
-
-```bash
-npm uninstall json-server
-npm install json-server@0.17
-```
-
-### Method 1: Run Server and Project Separately
-
-1. **Run Server on Port 3001**:
-
-Use the following command to start the server :
-
-```bash
-json-server src/data/db.json -m ./node_modules/json-server-auth --port 3001
-```
-
-2. **Run Project on Port 3000**:
-
-Use the following command to start the project:
-
+### 1. Run  on local
 ```bash
 npm start
 ```
+### 2. Run on link deloy
 
-### Method 2: Run Server and Project at the same time
-
-1. **Use the following command to start both server and project**:
-
-```bash
-npm run dev
-```
+**Link : https://shop-with-typescript.netlify.app/**
 
 # Resources account
 
