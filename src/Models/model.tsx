@@ -29,4 +29,4 @@ export interface order {
     total: number,
     status: "Delivered" | "Pending" | "In Transit";
   }
-export const API_URL = "http://localhost:3001"
+export const API_URL = "https://data-53oh.onrender.com"
