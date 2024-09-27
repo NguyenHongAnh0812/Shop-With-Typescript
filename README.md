@@ -14,7 +14,12 @@ npm start
 ```
 ### 2. Run on link deloy
 
-**Link : https://shop-with-typescript.netlify.app/**
+1. **Link : https://shop-with-typescript.netlify.app/**
+
+### If the app runs slowly, you can change the API_URL to http://localhost:3001 to run the server and run it with the command:
+```bash
+npm run dev
+```
 
 # Resources account
 
